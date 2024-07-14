@@ -10,10 +10,13 @@ func main() {
 	e := echo.New()
 
 	config.GoogleConfig()
+	config.GithubConfig()
 
 	e.GET("/", controllers.Ping)
 	e.GET("/google_login", controllers.GoogleLogin)
 	e.GET("/google_callback", controllers.GoogleCallback)
+	e.GET("/github_login", controllers.GithubLogin)
+	e.GET("/github_callback", controllers.GithubCallback)
 
 	e.Logger.Fatal(e.Start(":8080"))
 }
